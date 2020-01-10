@@ -28,17 +28,14 @@ public class PostRepositoryTest {
 	@Test
 	public void 게시글저장_불러오기() {
 		// given
-		postsRepository.save(Posts.builder()
-				.title("siba")
-				.content("tired")
-				.author("shinstealer").build());
+		postsRepository.save(Posts.builder().title("siba").content("tired").author("shinstealer").build());
 
 		// when
 		List<Posts> postsList = postsRepository.findAll();
 
 		// then
 		Posts posts = postsList.get(0);
-	
+
 		assertThat(posts.getAuthor(), is("shinstealer"));
 	}
 }
