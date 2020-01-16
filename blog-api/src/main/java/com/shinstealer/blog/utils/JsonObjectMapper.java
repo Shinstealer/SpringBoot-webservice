@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -73,7 +74,7 @@ public class JsonObjectMapper {
 	public String toJson(Object ob) throws Exception {
 		return mapper.writeValueAsString(ob);
 	}
-	
+
 	/**
 	 * @param josonNode
 	 * @param psth
@@ -85,7 +86,15 @@ public class JsonObjectMapper {
 				String name = iter.next();
 				printNode(node.get(name), path + "." + name);
 			}
-
+			
+			/* possible to user pairs of name and node
+			 if(node.isObject()) { 
+			 Iterator<Map.Entry<String, JsonNode>> iter2 = node.fields(); 
+			 	while(iter2.hasNext()) { 
+			 	 Map.Entry<String, JsonNode> entry = iter2.next(); 
+			 	 printNode(entry.getValue(), path + "," +entry.getKey()); } 
+			 }
+			 */
 		} else if (node.isArray()) {
 			Iterator<JsonNode> iter = node.elements();
 			int index = 0;
