@@ -3,6 +3,7 @@ package com.shinstealer.blog.domain;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.After;
@@ -37,5 +38,11 @@ public class PostRepositoryTest {
 		Posts posts = postsList.get(0);
 
 		assertThat(posts.getAuthor(), is("shinstealer"));
+	}
+	@Test
+	public void BaseTimeEntity_등록() {
+		LocalDateTime now = LocalDateTime.now();
+		postsRepository.save(Posts.builder().title("siba").content("tired").author("shinstealer").build());
+		
 	}
 }

@@ -1,11 +1,13 @@
 package com.shinstealer.blog.utils;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonObjectMapper {
@@ -59,14 +61,40 @@ public class JsonObjectMapper {
 	}
 
 	public HashMap<String, Object> fromJsonHashMap(String jsonString) throws Exception {
-		return mapper.readValue(jsonString, new TypeReference<HashMap<String, Object>>() {});
+		return mapper.readValue(jsonString, new TypeReference<HashMap<String, Object>>() {
+		});
 	}
+
 	public LinkedHashMap<String, Object> fromJsonLinkedHashMap(String jsonString) throws Exception {
-		return mapper.readValue(jsonString, new TypeReference<LinkedHashMap<String, Object>>() {});
+		return mapper.readValue(jsonString, new TypeReference<LinkedHashMap<String, Object>>() {
+		});
 	}
-	
+
 	public String toJson(Object ob) throws Exception {
 		return mapper.writeValueAsString(ob);
 	}
+	
+	/**
+	 * @param josonNode
+	 * @param psth
+	 */
+	public static void printNode(JsonNode node, String path) {
+		if (node.isObject()) {
+			Iterator<String> iter = node.fieldNames();
+			while (iter.hasNext()) {
+				String name = iter.next();
+				printNode(node.get(name), path + "." + name);
+			}
 
+		} else if (node.isArray()) {
+			Iterator<JsonNode> iter = node.elements();
+			int index = 0;
+			while (iter.hasNext()) {
+				printNode((JsonNode) iter.next(), path + String.format("[%s]", index++));
+			}
+		} else {
+			System.out.println(String.format("%s: %s", path, node));
+		}
+
+	}
 }
