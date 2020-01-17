@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 public class WebRestController {
 
 	private PostsRepository postsRepository;
-
+	
 	@GetMapping("/hello")
 	public String hello() {
 		return "hello world";
