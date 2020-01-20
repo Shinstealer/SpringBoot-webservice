@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+     <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap用のスクリプト -->
+    <link rel="stylesheet" href="../css/lib/bootstrap.min.css">
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
+
+
+    <title>post page</title>
+
+    <style>
+        body {
+            background-color: rgb(236, 239, 241);
+            font-family: 'Nanum Gothic Coding', monospace;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .col-7 {
+            min-width: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form action="" method="POST">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+                    <div class="col-lg-10 col-md-8 mx-auto">
+                        
+                        <div class="shadow-lg p-5 mb-7 bg-white rounded">
+                            <input class="form-control" type="text" class="" name="title" placeholder="title">
+                            <textarea class="form-control" name="note-body" id="" cols="80" rows="30" placeholder="note-body"></textarea>
+                            <br>
+                            <button class="btn btn-primary btn-lg float-right">SUBMIT</button>
+                            <button class="btn btn-danger  btn-lg float-left">BACK</button>
+                            <br>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+<!--부트스트랩 js, jquery 추가-->
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
+</body>
+
+<script>
+    CKEDITOR.replace('note-body');
+</script>
+
+</html>

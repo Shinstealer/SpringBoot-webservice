@@ -13,5 +13,11 @@ public class WebController {
 	public String main() {
 		return "main";
 	}
+	
+	@GetMapping("/posts")
+	public String posts() {
+		
+		return "upload_post";
+	}
 
 }
