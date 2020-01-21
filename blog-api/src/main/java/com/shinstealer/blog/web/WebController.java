@@ -17,7 +17,7 @@ public class WebController {
 	@GetMapping("/posts")
 	public String posts() {
 		
-		return "upload_post";
+		return "diary/upload_post";
 	}
 
 }

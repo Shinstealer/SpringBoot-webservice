@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="../css/lib/bootstrap.min.css"> 
     
     <!--부트스트랩 js, jquery 추가-->
-    <script src="../js/lib/jquery.min.js"></script>
-    <script src="../js/lib/bootstrap.min.js"></script>
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
     
     <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
     
@@ -47,10 +47,11 @@
                     <div class="col-lg-10 col-md-8 mx-auto">
                         
                         <div class="shadow-lg p-5 mb-7 bg-white rounded">
-                            <input class="form-control" type="text" class="" name="title" placeholder="title">
-                            <textarea class="form-control" name="note-body" id="" cols="80" rows="30" placeholder="note-body"></textarea>
+                            <input id="title" class="form-control" type="text"  name="title" placeholder="title">
+                            <input id="author" class="form-control" type="text" name="author" placeholder="author">
+                            <textarea id="note-body" class="form-control" name="note-body" cols="80" rows="30" placeholder="note-body"></textarea>
                             <br>
-                            <button class="btn btn-primary btn-lg float-right">SUBMIT</button>
+                            <button id="btn-submit" class="btn btn-primary btn-lg float-right">SUBMIT</button>
                             <button class="btn btn-danger  btn-lg float-left">BACK</button>
                             <br>
                         </div>
@@ -63,11 +64,18 @@
     </form>
 
 
-
+<script src="/js/app/posts.js"></script>
 </body>
 
 <script>
+$('#btn-back').on('click', function () {
+            location.href = "/";
+        });
+</script>
+
+<script>
     CKEDITOR.replace('note-body');
+    
 </script>
 
 

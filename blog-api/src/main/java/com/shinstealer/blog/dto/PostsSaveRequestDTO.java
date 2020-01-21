@@ -4,8 +4,10 @@ import com.shinstealer.blog.domain.Posts;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class PostsSaveRequestDTO {
 
 	private String title;
