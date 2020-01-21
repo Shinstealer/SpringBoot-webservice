@@ -17,12 +17,11 @@ var posts = {
         $.ajax({
             type: 'POST',
             url: '/posts',
-            dataType: 'json',
             contentType:'application/json; charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(data)
         }).done(function() {
             alert('글이 등록되었습니다.');
-            location.reload();
         }).fail(function (error) {
             alert(error);
         });
