@@ -52,7 +52,7 @@
                             <textarea id="note-body" class="form-control" name="note-body" cols="80" rows="30" placeholder="note-body"></textarea>
                             <br>
                             <button id="btn-submit" class="btn btn-primary btn-lg float-right">SUBMIT</button>
-                            <button class="btn btn-danger  btn-lg float-left">BACK</button>
+                            <button id="btn-back" class="btn btn-danger  btn-lg float-left">BACK</button>
                             <br>
                         </div>
                         
@@ -68,8 +68,11 @@
 </body>
 
 <script>
-$('#btn-back').on('click', function () {
-            location.href = "/";
+        
+        const backBtn = document.getElementById("btn-back");
+
+        backBtn.addEventListener('click', event => {
+            location.href="/post-list";
         });
 </script>
 

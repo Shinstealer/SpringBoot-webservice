@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap用のスクリプト -->
+    <link rel="stylesheet" href="../css/lib/bootstrap.min.css"> 
+    
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
+    
+    <title>post page</title>
+
+    <style>
+        body {
+            background-color: rgb(236, 239, 241);
+            font-family: 'Nanum Gothic Coding', monospace;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .col-7 {
+            min-width: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="col-md-12">
+        <button type="button" id="new_post" class="btn btn-primary">글 등록</button>
+        <br/>
+        <br/>
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>AUTHOR</th>
+                    <th>LAST UPDATE</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#each posts}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+                    <td>{{modifiedDate}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+</div>
+
+
+</body>
+
+<script>
+        
+        const post = document.getElementById("new_post");
+
+        post.addEventListener('click', event => {
+            location.href="/posts";
+        });
+    </script>
+
+
+</html>

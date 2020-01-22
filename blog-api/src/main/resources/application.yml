@@ -1,5 +1,18 @@
 spring:
-   h2:
+  profiles:
+    active: local 
+         
+# local 환경
+---
+spring:
+  profiles: local
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    data: classpath:data-h2.sql 
+  h2:
       console:
          enabled: true
          path: /h2
