@@ -1,6 +1,7 @@
 package com.shinstealer.blog.domain;
 
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
 
 import java.time.LocalDateTime;
@@ -41,8 +42,20 @@ public class PostRepositoryTest {
 	}
 	@Test
 	public void BaseTimeEntity_등록() {
-		LocalDateTime now = LocalDateTime.now();
-		postsRepository.save(Posts.builder().title("siba").content("tired").author("shinstealer").build());
+		//given
+        LocalDateTime now = LocalDateTime.now();
+        postsRepository.save(Posts.builder()
+                .title("테스트 게시글")
+                .content("테스트 본문")
+                .author("shinstealer")
+                .build());
+        //when
+        List<Posts> postsList = postsRepository.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
+        assertTrue(posts.getCreatedDate().isAfter(now));
+        assertTrue(posts.getModifiedDate().isAfter(now));
 		
 	}
 }
