@@ -3,10 +3,7 @@ package com.shinstealer.blog.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import com.shinstealer.blog.dto.PostsSaveRequestDTO;
 import com.shinstealer.blog.webservice.PostService;
 
 import lombok.AllArgsConstructor;
@@ -28,13 +25,6 @@ public class WebController {
 		return "diary/upload_post";
 	}
 
-	@PostMapping("/posts")
-	public String savePosts(@RequestBody PostsSaveRequestDTO dto) {
-
-		postService.save(dto);
-		return "/";
-
-	}
 
 	@GetMapping("/post-list")
 	public String listPosts(Model model) {
