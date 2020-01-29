@@ -6,6 +6,10 @@ plugins {
 	id 'war'
 }
 
+//bootJar 비활성화시
+bootJar.enabled = false
+jar.enabled = true
+
 group = 'com.shinstealer'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'

@@ -22,6 +22,10 @@ public class PostService {
 	public Long save(PostsSaveRequestDTO dto) {
 		return postsRepository.save(dto.toEntity()).getId();
 	}
+	@Transactional
+    public void deletePost(Long id) {
+		postsRepository.deleteById(id);
+    }
 
 	@Transactional(readOnly = true)
 	public List<PostListResponseDTO> findAllDesc() {
